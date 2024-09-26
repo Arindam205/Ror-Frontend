@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar With Bootstrap</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button class="toggle-btn" type="button">
+                    <i class="lni lni-grid-alt"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="#">ROR APPLICATION</a>
+                </div>
+            </div>
+            <ul class="sidebar-nav">
+                <!-- Sidebar content as is -->
+                <!-- ... -->
+            </ul>
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        <div class="main">
+            <nav class="navbar navbar-expand px-4 py-3">
+                <form action="#" class="d-none d-sm-inline-block"></form>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                <img src="/account.png" class="avatar img-fluid" alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end rounded">
+                                <!-- Dropdown menu -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Form Integration Section -->
+            <div class="container mt-5">
+                <div id="accordion">
+                    <!-- RorMaster Details Section -->
+                    <div class="card">
+                        <div class="card-header" id="headingRorMaster">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseRorMaster"
+                                    aria-expanded="true" aria-controls="collapseRorMaster">
+                                    RorMaster Details
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseRorMaster" class="collapse show" aria-labelledby="headingRorMaster"
+                            data-bs-parent="#accordion">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="oldRorId">Old ROR ID</label>
+                                    <input type="text" class="form-control" id="oldRorId"
+                                        placeholder="Enter Old ROR ID">
+                                </div>
+                                <div class="form-group">
+                                    <label for="rationCardNumber">Ration Card Number</label>
+                                    <input type="text" class="form-control" id="rationCardNumber"
+                                        placeholder="Enter Ration Card Number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="familyIncome">Family Income</label>
+                                    <input type="number" class="form-control" id="familyIncome"
+                                        placeholder="Enter Family Income">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Civic Details Section -->
+                    <div class="card">
+                        <div class="card-header" id="headingCivicDetails">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseCivicDetails" aria-expanded="false"
+                                    aria-controls="collapseCivicDetails">
+                                    Civic Details
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseCivicDetails" class="collapse show" aria-labelledby="headingCivicDetails"
+                            data-bs-parent="#accordion">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="electricityConnection">Electricity Connection</label>
+                                    <input type="text" class="form-control" id="electricityConnection"
+                                        placeholder="Enter Electricity Connection Status">
+                                </div>
+                                <div class="form-group">
+                                    <label for="septicTankSewerageConnection">Septic Tank/Sewerage Connection</label>
+                                    <input type="text" class="form-control" id="septicTankSewerageConnection"
+                                        placeholder="Enter Septic Tank/Sewerage Connection Status">
+                                </div>
+                                <div class="form-group">
+                                    <label for="constructionType">Construction Type</label>
+                                    <input type="text" class="form-control" id="constructionType"
+                                        placeholder="Enter Construction Type">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other form sections (Family Members, Address, etc.) continue here -->
+                    <!-- ... -->
+
+                    <!-- Submit Button -->
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-body-secondary">
+                        <div class="col-6 text-start ">
+                            <a class="text-body-secondary" href=" #">
+                                <strong>CodzSwod</strong>
+                            </a>
+                        </div>
+                        <div class="col-6 text-end text-body-secondary d-none d-md-block">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a class="text-body-secondary" href="#">Contact</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-body-secondary" href="#">About Us</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-body-secondary" href="#">Terms & Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS and necessary JS for form functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

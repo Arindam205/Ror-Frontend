@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ROR Application</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Line Icons CSS -->
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <!-- Custom CSS for styling -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        /* Sidebar Styles */
+        #sidebar {
+            width: 250px;
+            background: #343a40;
+            min-height: 100vh;
+            color: #fff;
+            position: fixed;
+        }
+        #sidebar .sidebar-link {
+            color: #adb5bd;
+            display: block;
+            padding: 0.75rem 1.25rem;
+            text-decoration: none;
+        }
+        #sidebar .sidebar-link:hover {
+            background: #495057;
+            color: #fff;
+        }
+        #sidebar .sidebar-logo a {
+            color: #fff;
+            font-weight: bold;
+            display: block;
+            padding: 1rem 1.25rem;
+            text-decoration: none;
+        }
+        #sidebar .sidebar-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .wrapper {
+            display: flex;
+            width: 100%;
+        }
+        .main {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+        }
+        /* Navbar Styles */
+        .navbar {
+            background: #fff;
+            padding: 1rem;
+        }
+        /* Accordion and Form Styles */
+        .accordion-button:not(.collapsed) {
+            color: #fff;
+            background-color: #0d6efd;
+        }
+        .accordion-button {
+            color: #0d6efd;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+        }
+        .form-section {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .form-section h5 {
+            margin-bottom: 1rem;
+        }
+        .remove-family-member {
+            margin-top: 1rem;
+        }
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: none;
+        }
+        .add-family-member-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        /* Footer Styles */
+        .footer {
+            background: #fff;
+            padding: 1rem;
+            text-align: center;
+            color: #6c757d;
+        }
+        .footer a {
+            color: #6c757d;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button class="toggle-btn" type="button">
+                    <i class="lni lni-grid-alt"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="#">ROR APPLICATION</a>
+                </div>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="lni lni-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <!-- ... Other Sidebar Items ... -->
+            </ul>
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand px-4 py-3">
+                <!-- Navbar content -->
+            </nav>
+            <!-- Accordion Form -->
+            <div class="container my-5">
+                <h2 class="text-center mb-4">Redesigned ROR Form</h2>
+                <div class="accordion" id="formAccordion">
+                    <!-- RorMaster Details Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingRorMaster">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRorMaster" aria-expanded="true" aria-controls="collapseRorMaster">
+                                RorMaster Details
+                            </button>
+                        </h2>
+                        <div id="collapseRorMaster" class="accordion-collapse collapse show" aria-labelledby="headingRorMaster" data-bs-parent="#formAccordion">
+                            <div class="accordion-body">
+                                <div class="form-section">
+                                    <div class="mb-3">
+                                        <label for="oldRorId" class="form-label">Old ROR ID</label>
+                                        <input type="text" class="form-control" id="oldRorId" placeholder="Enter Old ROR ID">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="rationCardNumber" class="form-label">Ration Card Number</label>
+                                        <input type="text" class="form-control" id="rationCardNumber" placeholder="Enter Ration Card Number">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="familyIncome" class="form-label">Family Income</label>
+                                        <input type="number" class="form-control" id="familyIncome" placeholder="Enter Family Income">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Civic Details Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingCivicDetails">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCivicDetails" aria-expanded="false" aria-controls="collapseCivicDetails">
+                                Civic Details
+                            </button>
+                        </h2>
+                        <div id="collapseCivicDetails" class="accordion-collapse collapse" aria-labelledby="headingCivicDetails" data-bs-parent="#formAccordion">
+                            <div class="accordion-body">
+                                <div class="form-section">
+                                    <div class="mb-3">
+                                        <label for="electricityConnection" class="form-label">Electricity Connection</label>
+                                        <input type="text" class="form-control" id="electricityConnection" placeholder="Enter Electricity Connection Status">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="septicTankSewerageConnection" class="form-label">Septic Tank/Sewerage Connection</label>
+                                        <input type="text" class="form-control" id="septicTankSewerageConnection" placeholder="Enter Septic Tank/Sewerage Connection Status">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="constructionType" class="form-label">Construction Type</label>
+                                        <input type="text" class="form-control" id="constructionType" placeholder="Enter Construction Type">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Family Members Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFamilyMembers">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFamilyMembers" aria-expanded="false" aria-controls="collapseFamilyMembers">
+                                Family Members
+                            </button>
+                        </h2>
+                        <div id="collapseFamilyMembers" class="accordion-collapse collapse" aria-labelledby="headingFamilyMembers" data-bs-parent="#formAccordion">
+                            <div class="accordion-body">
+                                <div id="family-members-container">
+                                    <!-- Family Member Template -->
+                                    <div class="family-member-section" id="familyMember1">
+                                        <h5>Family Member Details</h5>
+                                        <div class="row g-3">
+                                            <div class="col-md-3">
+                                                <label for="title1" class="form-label">Title</label>
+                                                <select class="form-select" id="title1">
+                                                    <option selected disabled>Select Title</option>
+                                                    <option value="Mr.">Mr.</option>
+                                                    <option value="Mrs.">Mrs.</option>
+                                                    <option value="Ms.">Ms.</option>
+                                                    <option value="Dr.">Dr.</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="firstName1" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="firstName1" placeholder="Enter First Name">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="middleName1" class="form-label">Middle Name</label>
+                                                <input type="text" class="form-control" id="middleName1" placeholder="Enter Middle Name">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="lastName1" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="lastName1" placeholder="Enter Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="row g-3 mt-3">
+                                            <div class="col-md-4">
+                                                <label for="relationWithHOF1" class="form-label">Relation with Head of Family</label>
+                                                <input type="text" class="form-control" id="relationWithHOF1" placeholder="Enter Relation">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="dateOfBirth1" class="form-label">Date of Birth</label>
+                                                <input type="date" class="form-control" id="dateOfBirth1">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="gender1" class="form-label">Gender</label>
+                                                <select class="form-select" id="gender1">
+                                                    <option selected disabled>Select Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Transgender">Transgender</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row g-3 mt-3">
+                                            <div class="col-md-4">
+                                                <label for="phoneNumber1" class="form-label">Phone Number</label>
+                                                <input type="text" class="form-control" id="phoneNumber1" placeholder="Enter Phone Number">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="educationQualification1" class="form-label">Education Qualification</label>
+                                                <select class="form-select" id="educationQualification1">
+                                                    <option selected disabled>Select Qualification</option>
+                                                    <option value="School(I-VII)">School (I-VII)</option>
+                                                    <option value="School(IX-X)">School (IX-X)</option>
+                                                    <option value="School(X-XII)">School (X-XII)</option>
+                                                    <option value="Graduate">Graduate</option>
+                                                    <option value="Post Graduate">Post Graduate</option>
+                                                    <option value="Phd">PhD</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="isHeadOfFamily1" class="form-label">Is Head of Family</label>
+                                                <select class="form-select is-head-of-family" id="isHeadOfFamily1">
+                                                    <option value="true">Yes</option>
+                                                    <option value="false" selected>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row g-3 mt-3">
+                                            <div class="col-md-4">
+                                                <label for="religion1" class="form-label">Religion</label>
+                                                <select class="form-select" id="religion1">
+                                                    <option selected disabled>Select Religion</option>
+                                                    <option value="Hindu">Hindu</option>
+                                                    <option value="Muslim">Muslim</option>
+                                                    <option value="Christian">Christian</option>
+                                                    <option value="Sikh">Sikh</option>
+                                                    <option value="Buddhists">Buddhists</option>
+                                                    <option value="Jains">Jains</option>
+                                                    <option value="Zoroastrianism">Zoroastrianism</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="identityProof1" class="form-label">Identity Proof</label>
+                                                <select class="form-select" id="identityProof1">
+                                                    <option selected disabled>Select Identity Proof</option>
+                                                    <option value="Aadhar Card">Aadhar Card</option>
+                                                    <option value="PAN Card">PAN Card</option>
+                                                    <option value="Voter ID">Voter ID</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="idNumber1" class="form-label">ID Number</label>
+                                                <input type="text" class="form-control" id="idNumber1" placeholder="Enter ID Number">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-danger remove-family-member" onclick="removeFamilyMember(1)">Remove</button>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <!-- Add More Family Members Button -->
+                                <div class="add-family-member-btn">
+                                    <button type="button" class="btn btn-success" id="addFamilyMember">Add Family Member</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Address Details Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingAddressDetails">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAddressDetails" aria-expanded="false" aria-controls="collapseAddressDetails">
+                                Address Details
+                            </button>
+                        </h2>
+                        <div id="collapseAddressDetails" class="accordion-collapse collapse" aria-labelledby="headingAddressDetails" data-bs-parent="#formAccordion">
+                            <div class="accordion-body">
+                                <div class="form-section">
+                                    <div class="mb-3">
+                                        <label for="gisPropertyId" class="form-label">GIS Property ID</label>
+                                        <input type="text" class="form-control" id="gisPropertyId" placeholder="Enter GIS Property ID">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="wardNumber" class="form-label">Ward Number</label>
+                                        <input type="number" class="form-control" id="wardNumber" placeholder="Enter Ward Number">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="locality" class="form-label">Locality</label>
+                                        <input type="text" class="form-control" id="locality" placeholder="Enter Locality">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subLocality" class="form-label">Sub-Locality</label>
+                                        <input type="text" class="form-control" id="subLocality" placeholder="Enter Sub-Locality">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="postOffice" class="form-label">Post Office</label>
+                                        <input type="text" class="form-control" id="postOffice" placeholder="Enter Post Office">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="policeStation" class="form-label">Police Station</label>
+                                        <input type="text" class="form-control" id="policeStation" placeholder="Enter Police Station">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="roadName" class="form-label">Road Name</label>
+                                        <input type="text" class="form-control" id="roadName" placeholder="Enter Road Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pinCode" class="form-label">PIN Code</label>
+                                        <input type="text" class="form-control" id="pinCode" placeholder="Enter PIN Code">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit Form</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-body-secondary">
+                        <div class="col-6 text-start">
+                            <a class="text-body-secondary" href="#">
+                                <strong>CodzSwod</strong>
+                            </a>
+                        </div>
+                        <div class="col-6 text-end text-body-secondary d-none d-md-block">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a class="text-body-secondary" href="#">Contact</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-body-secondary" href="#">About Us</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="text-body-secondary" href="#">Terms & Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        let familyMemberCount = 1; // Start with 1, as one member is loaded by default
+        let headOfFamilySelected = false; // Tracks if "Yes" is selected for Head of Family
+
+        // Add event listener for the first family member's Head of Family
+        document.getElementById('isHeadOfFamily1').addEventListener('change', function(event) {
+            handleHeadOfFamilyChange(event.target);
+        });
+
+        // Function to handle changes to Head of Family status
+        function handleHeadOfFamilyChange(target) {
+            if (target.value === 'true') {
+                headOfFamilySelected = true;
+                updateAllIsHeadOfFamily();
+            } else if (target.value === 'false') {
+                headOfFamilySelected = false;
+                enableAllIsHeadOfFamily();
+            }
+        }
+
+        // Function to update all "Is Head of Family" fields after Yes is selected
+        function updateAllIsHeadOfFamily() {
+            const headOfFamilyFields = document.querySelectorAll('.is-head-of-family');
+            headOfFamilyFields.forEach(field => {
+                if (field.value !== 'true') {
+                    field.value = 'false';
+                    field.disabled = true; // Disable all other head-of-family dropdowns
+                }
+            });
+        }
+
+        // Function to enable all "Is Head of Family" fields if Yes is not selected
+        function enableAllIsHeadOfFamily() {
+            const headOfFamilyFields = document.querySelectorAll('.is-head-of-family');
+            headOfFamilyFields.forEach(field => {
+                field.disabled = false; // Enable the dropdowns again
+            });
+        }
+
+        // Function to add a new family member
+        function addFamilyMember() {
+            familyMemberCount++;
+            const container = document.getElementById('family-members-container');
+
+            let familyMemberSection = document.createElement('div');
+            familyMemberSection.classList.add('family-member-section');
+            familyMemberSection.id = `familyMember${familyMemberCount}`;
+
+            familyMemberSection.innerHTML = `
+                <h5>Family Member Details</h5>
+                <div class="row g-3">
+                    <!-- ... (Fields similar to the first member) ... -->
+                </div>
+                <!-- Add event listeners and other functionalities as needed -->
+                <button type="button" class="btn btn-danger remove-family-member" onclick="removeFamilyMember(${familyMemberCount})">Remove</button>
+                <hr>
+            `;
+
+            container.appendChild(familyMemberSection);
+
+            // Attach event listener for "Is Head of Family" field
+            document.getElementById(`isHeadOfFamily${familyMemberCount}`).addEventListener('change', function(event) {
+                handleHeadOfFamilyChange(event.target);
+            });
+        }
+
+        // Function to remove a family member
+        function removeFamilyMember(id) {
+            const member = document.getElementById(`familyMember${id}`);
+            member.remove();
+
+            // After removing, check if the head of family is still selected
+            checkHeadOfFamily();
+        }
+
+        // Check if Head of Family exists after removing a member
+        function checkHeadOfFamily() {
+            const headOfFamilyFields = document.querySelectorAll('.is-head-of-family');
+            headOfFamilySelected = false;
+
+            headOfFamilyFields.forEach(field => {
+                if (field.value === 'true') {
+                    headOfFamilySelected = true;
+                }
+            });
+
+            // If no Head of Family is selected, enable the option for others
+            if (!headOfFamilySelected) {
+                enableAllIsHeadOfFamily();
+            }
+        }
+
+        // Attach event listener to the Add Family Member button
+        document.getElementById('addFamilyMember').addEventListener('click', addFamilyMember);
+    </script>
+</body>
+</html>
